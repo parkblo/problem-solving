@@ -1,14 +1,5 @@
 ![image](https://user-images.githubusercontent.com/62245207/166436256-f57c27ba-0bca-497d-b7b9-786720c5c801.png)
 
-|Date|Problems|🏷️|Remarks|
-|-----|:-----:|:-----:|:-----:|
-|25.02.04|[18513번: 샘터](https://www.acmicpc.net/problem/18513)|😵|BFS, 매번 queue의 front를 처리하는 것보다 한 턴씩 큐 전체를 탐색하여 시간 효율을 증가할 수 있다. 추가적으로 js로 풀이할 시 큰 수에 대해 추가적인 처리가 필요하지 않았다. BFS 풀이를 떠올리는 것이 어려운 문제같다.|
-|25.02.06|[16435번: 스네이크버드](https://www.acmicpc.net/problem/16435)||간단한 정렬 활용 문제|
-|25.02.07|[2285번: 우체국](https://www.acmicpc.net/problem/2285)|😵|그리디하게 사람 수를 기준으로 위치를 선정하는 문제. 기준점을 어떻게 세울 것인지 판단하는 것이 어려웠다. [참고1](https://min413903.tistory.com/70) [참고2](https://youngseo-computerblog.tistory.com/105)|
-|25.02.10|[20115번: 에너지 드링크](https://www.acmicpc.net/problem/20115)|🎂|그리디하게 생각하기|
-|25.02.12|[14925번: 목장 건설하기](https://www.acmicpc.net/problem/14925)|😵|누적합을 응용한 DP 문제. BFS로 풀이한다면 시간 관리에 어려움이 있다. [참고1](https://sangdo913.tistory.com/116) [참고2](https://blog.naver.com/jinhan814/222293314366)|
-|25.02.13|[파괴되지 않은 건물](https://school.programmers.co.kr/learn/courses/30/lessons/92344?language=javascript)|😵|누적합을 이용한 최적화를 2차원 배열에 적용할 수 있는지 물어보는 문제 [참고1](https://www.youtube.com/watch?v=4B6tDyIz694)|
-
 <details>
 <summary>View past history</summary>
 <p>
@@ -194,6 +185,20 @@
 |21.07.31|[BOJ 16236 : 아기 상어](https://www.acmicpc.net/problem/16236)||
 
 </p>
+</details>
+
+<details>
+<summary>2025</summary>
+
+|Date|Problems|🏷️|Remarks|
+|-----|:-----:|:-----:|:-----:|
+|25.02.04|[18513번: 샘터](https://www.acmicpc.net/problem/18513)|😵|BFS, 매번 queue의 front를 처리하는 것보다 한 턴씩 큐 전체를 탐색하여 시간 효율을 증가할 수 있다. 추가적으로 js로 풀이할 시 큰 수에 대해 추가적인 처리가 필요하지 않았다. BFS 풀이를 떠올리는 것이 어려운 문제같다.|
+|25.02.06|[16435번: 스네이크버드](https://www.acmicpc.net/problem/16435)||간단한 정렬 활용 문제|
+|25.02.07|[2285번: 우체국](https://www.acmicpc.net/problem/2285)|😵|그리디하게 사람 수를 기준으로 위치를 선정하는 문제. 기준점을 어떻게 세울 것인지 판단하는 것이 어려웠다. [참고1](https://min413903.tistory.com/70) [참고2](https://youngseo-computerblog.tistory.com/105)|
+|25.02.10|[20115번: 에너지 드링크](https://www.acmicpc.net/problem/20115)|🎂|그리디하게 생각하기|
+|25.02.12|[14925번: 목장 건설하기](https://www.acmicpc.net/problem/14925)|😵|누적합을 응용한 DP 문제. BFS로 풀이한다면 시간 관리에 어려움이 있다. [참고1](https://sangdo913.tistory.com/116) [참고2](https://blog.naver.com/jinhan814/222293314366)|
+|25.02.13|[파괴되지 않은 건물](https://school.programmers.co.kr/learn/courses/30/lessons/92344?language=javascript)|😵|누적합을 이용한 최적화를 2차원 배열에 적용할 수 있는지 물어보는 문제 [참고1](https://www.youtube.com/watch?v=4B6tDyIz694)|
+  
 </details>
 
 </p>
