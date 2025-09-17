@@ -1,14 +1,25 @@
 function solve(input) {
   const [N, M] = input.shift().split(" ").map(BigInt);
-  const A = input.map(BigInt);
-  let [L, R] = [1n, 10n ** 9n * M];
-  while (L < R) {
-    const C = (L + R) / 2n;
-    const S = A.reduce((a, b) => a + BigInt(C / b), 0n);
-    if (S < M) L = C + 1n;
-    else R = C;
+  const desks = input.map(BigInt);
+
+  let left = 1n;
+  let right = 10n ** 9n * M;
+
+  while (left <= right) {
+    const mid = (left + right) / 2n;
+
+    let totalCount = 0n;
+    for (let i = 0; i < desks.length; i++) {
+      totalCount += mid / desks[i];
+    }
+
+    if (totalCount >= M) {
+      right = mid - 1n;
+    } else {
+      left = mid + 1n;
+    }
   }
-  console.log(R.toString());
+  console.log(left.toString());
 }
 
 const fs = require("fs");
