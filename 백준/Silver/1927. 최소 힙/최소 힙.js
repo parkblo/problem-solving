@@ -1,93 +1,93 @@
 class MinHeap {
   constructor() {
-    this.heap = [];
+    this.heap = [null];
   }
 
-  insert(val) {
-    this.heap.push(val);
-    this.heapifyUp();
+  #swap(a, b) {
+    [this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]];
   }
 
-  heapifyUp() {
-    let currentIndex = this.heap.length - 1;
+  insert(x) {
+    this.heap.push(x);
+    this.#heapifyUp();
+  }
 
-    while (currentIndex > 0) {
-      const parentIndex = Math.floor((currentIndex - 1) / 2);
+  #heapifyUp() {
+    let curr = this.heap.length - 1;
 
-      if (this.heap[parentIndex] <= this.heap[currentIndex]) {
+    while (curr > 1) {
+      const parent = Math.floor(curr / 2);
+
+      if (this.heap[parent] > this.heap[curr]) {
+        this.#swap(parent, curr);
+        curr = parent;
+      } else {
         break;
       }
-
-      [this.heap[parentIndex], this.heap[currentIndex]] = [
-        this.heap[currentIndex],
-        this.heap[parentIndex],
-      ];
-      currentIndex = parentIndex;
     }
   }
 
   remove() {
-    if (this.heap.length === 0) return null;
-    if (this.heap.length === 1) return this.heap.pop();
+    if (this.heap.length < 2) {
+      return 0;
+    }
 
-    const minValue = this.heap[0];
-    this.heap[0] = this.heap.pop();
-    this.heapifyDown(0); // why?
+    if (this.heap.length === 2) {
+      return this.heap.pop();
+    }
 
-    return minValue;
+    this.#swap(this.heap.length - 1, 1);
+    const val = this.heap.pop();
+    this.#heapifyDown();
+    return val;
   }
 
-  heapifyDown(index) {
-    let smallest = index;
-    const leftChildIndex = 2 * index + 1;
-    const rightChildIndex = 2 * index + 2;
-    const length = this.heap.length;
+  #heapifyDown() {
+    let curr = 1;
+    const len = this.heap.length;
 
-    if (
-      leftChildIndex < length &&
-      this.heap[leftChildIndex] < this.heap[smallest]
-    ) {
-      smallest = leftChildIndex;
-    }
+    while (curr < len) {
+      let l = curr * 2;
+      let r = curr * 2 + 1;
+      let smaller = curr;
 
-    if (
-      rightChildIndex < length &&
-      this.heap[rightChildIndex] < this.heap[smallest]
-    ) {
-      smallest = rightChildIndex;
-    }
+      if (l < len && this.heap[smaller] > this.heap[l]) {
+        smaller = l;
+      }
 
-    if (smallest !== index) {
-      [this.heap[index], this.heap[smallest]] = [
-        this.heap[smallest],
-        this.heap[index],
-      ];
-      this.heapifyDown(smallest);
+      if (r < len && this.heap[smaller] > this.heap[r]) {
+        smaller = r;
+      }
+
+      if (smaller !== curr) {
+        this.#swap(smaller, curr);
+        curr = smaller;
+      } else {
+        break;
+      }
     }
   }
 }
 
 function solve(input) {
-  const n = input.shift();
   const heap = new MinHeap();
+  const n = input.shift();
   const ret = [];
 
-  for (const num of input) {
-    if (num === "0") {
-      const val = heap.remove();
-      if (val === null) ret.push(0);
-      else ret.push(val);
+  for (const str of input) {
+    const x = Number(str);
+    if (x === 0) {
+      ret.push(heap.remove());
     } else {
-      heap.insert(Number(num));
+      heap.insert(x);
     }
   }
 
   console.log(ret.join("\n"));
 }
 
-// == I/O ==
 const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
-let input = fs.readFileSync(filePath).toString().trim().split("\n");
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 solve(input);
