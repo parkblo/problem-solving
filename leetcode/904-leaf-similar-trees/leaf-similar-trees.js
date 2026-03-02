@@ -27,7 +27,5 @@ var leafSimilar = function (root1, root2) {
     const seq2 = [];
     traverse(root1, seq1);
     traverse(root2, seq2);
-
-    if (JSON.stringify(seq1) !== JSON.stringify(seq2)) return false;
-    return true;
+    return JSON.stringify(seq1) === JSON.stringify(seq2)
 };
